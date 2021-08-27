@@ -79,6 +79,8 @@ export interface BarSeriesOption extends BaseBarSeriesOption<BarStateOption>, Ba
     data?: (BarDataItemOption | OptionDataValue | OptionDataValue[])[]
 
     realtimeSort?: boolean
+
+    expandClipArea?: boolean
 }
 
 class BarSeriesModel extends BaseBarSeriesModel<BarSeriesOption> {
@@ -150,7 +152,9 @@ class BarSeriesModel extends BaseBarSeriesModel<BarSeriesOption> {
             }
         },
 
-        realtimeSort: false
+        realtimeSort: false,
+
+        expandClipArea: true
     });
 
 }

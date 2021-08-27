@@ -205,7 +205,8 @@ class BarView extends ChartView {
         }
 
         const needsClip = seriesModel.get('clip', true) || realtimeSortCfg;
-        const coordSysClipArea = getClipArea(coord, data);
+        const expandClipArea = seriesModel.get('expandClipArea');
+        const coordSysClipArea = expandClipArea ? getClipArea(coord, data) : coord.getArea();
         // If there is clipPath created in large mode. Remove it.
         group.removeClipPath();
         // We don't use clipPath in normal mode because we needs a perfect animation
