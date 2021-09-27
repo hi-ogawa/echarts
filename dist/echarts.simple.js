@@ -40721,7 +40721,8 @@
             borderColor: '#212121'
           }
         },
-        realtimeSort: false
+        realtimeSort: false,
+        expandClipArea: true
       });
       return BarSeriesModel;
     }(BaseBarSeriesModel);
@@ -40902,7 +40903,8 @@
         }
 
         var needsClip = seriesModel.get('clip', true) || realtimeSortCfg;
-        var coordSysClipArea = getClipArea(coord, data); // If there is clipPath created in large mode. Remove it.
+        var expandClipArea = seriesModel.get('expandClipArea');
+        var coordSysClipArea = expandClipArea ? getClipArea(coord, data) : coord.getArea(); // If there is clipPath created in large mode. Remove it.
 
         group.removeClipPath(); // We don't use clipPath in normal mode because we needs a perfect animation
         // And don't want the label are clipped.
